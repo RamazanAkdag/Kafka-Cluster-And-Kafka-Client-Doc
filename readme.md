@@ -7,7 +7,7 @@ Zookeeper, Kafka'nın dağıtık sistemlerde koordinasyon sağlamak için kullan
 - **ZOOKEEPER_TICK_TIME**: Zookeeper içinde zaman birimi olarak kullanılan tick time.
 - **ZOOKEEPER_SERVER_ID**: Her Zookeeper instance'ına özel bir kimlik numarası.
 - **ZOOKEEPER_SERVERS**: Cluster'daki diğer Zookeeper instance'larının adres bilgileri.
-
+![img_2.png](dir-screenshots/img_2.png)
 ### Kafka Cluster Açıklaması
 Kafka, mesajların dağıtık bir şekilde işlenmesi ve saklanması için kullanılan bir mesaj kuyruğu sistemidir. Kafka cluster'ı, birden fazla broker'dan oluşur ve bu broker'lar Zookeeper üzerinden koordine edilir.
 
@@ -23,7 +23,7 @@ Schema Registry, Kafka'da kullanılan mesajların JSON, Avro veya Protobuf gibi 
 - **SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS**: Schema Registry'nin Kafka'ya bağlanması için gerekli broker adresleri.
 - **SCHEMA_REGISTRY_HOST_NAME**: Schema Registry'nin host adı.
 - **SCHEMA_REGISTRY_LISTENERS**: Schema Registry'nin dinleyeceği adres ve port bilgisi.
-
+![img_1.png](dir-screenshots/img_1.png)
 ### Kafdrop Açıklaması
 Kafdrop, Kafka cluster'ını yönetmek ve izlemek için kullanılan bir web arayüzüdür. Kafdrop ile aşağıdaki işlemler yapılabilir:
 
@@ -34,7 +34,7 @@ Kafdrop, Kafka cluster'ını yönetmek ve izlemek için kullanılan bir web aray
 
 - **KAFKA_BROKERCONNECT**: Kafdrop'un bağlanacağı Kafka broker adresleri.
 - **JVM_OPTS**: Kafdrop için JVM yapılandırma ayarları.
-
+![img.png](dir-screenshots/img.png)
 ### Parent POM'da Repository Eklenmesi
 ```xml
 <repositories>
