@@ -1,5 +1,40 @@
 ## Confluentic 7.4.0 için
 
+### Zookeeper Cluster Açıklaması
+Zookeeper, Kafka'nın dağıtık sistemlerde koordinasyon sağlamak için kullandığı bir servistir. Bir Zookeeper cluster'ı, birden fazla Zookeeper instance'ından oluşur ve bu instance'lar birlikte çalışarak yüksek erişilebilirlik sağlar.
+
+- **ZOOKEEPER_CLIENT_PORT**: Zookeeper'ın istemci bağlantılarını dinlediği port.
+- **ZOOKEEPER_TICK_TIME**: Zookeeper içinde zaman birimi olarak kullanılan tick time.
+- **ZOOKEEPER_SERVER_ID**: Her Zookeeper instance'ına özel bir kimlik numarası.
+- **ZOOKEEPER_SERVERS**: Cluster'daki diğer Zookeeper instance'larının adres bilgileri.
+
+### Kafka Cluster Açıklaması
+Kafka, mesajların dağıtık bir şekilde işlenmesi ve saklanması için kullanılan bir mesaj kuyruğu sistemidir. Kafka cluster'ı, birden fazla broker'dan oluşur ve bu broker'lar Zookeeper üzerinden koordine edilir.
+
+- **KAFKA_BROKER_ID**: Her Kafka broker'ına atanmış benzersiz bir kimlik.
+- **KAFKA_ZOOKEEPER_CONNECT**: Kafka broker'larının bağlandığı Zookeeper adresleri.
+- **KAFKA_ADVERTISED_LISTENERS**: Broker'ın dış dünyaya nasıl göründüğünü belirler.
+- **KAFKA_LISTENERS**: Broker'ın dinlediği adres ve port bilgisi.
+- **KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR**: Offsets topic'inin replikasyon faktörü.
+
+### Schema Registry Açıklaması
+Schema Registry, Kafka'da kullanılan mesajların JSON, Avro veya Protobuf gibi şemalarını saklamak ve yönetmek için kullanılan bir servistir. Mesajların şemalarını saklayarak, farklı uygulamaların Kafka üzerinde aynı veri formatında haberleşmesini sağlar.
+
+- **SCHEMA_REGISTRY_KAFKASTORE_BOOTSTRAP_SERVERS**: Schema Registry'nin Kafka'ya bağlanması için gerekli broker adresleri.
+- **SCHEMA_REGISTRY_HOST_NAME**: Schema Registry'nin host adı.
+- **SCHEMA_REGISTRY_LISTENERS**: Schema Registry'nin dinleyeceği adres ve port bilgisi.
+
+### Kafdrop Açıklaması
+Kafdrop, Kafka cluster'ını yönetmek ve izlemek için kullanılan bir web arayüzüdür. Kafdrop ile aşağıdaki işlemler yapılabilir:
+
+- Topic'lerin detaylarını görüntülemek.
+- Mesaj içeriklerini incelemek.
+- Partition bilgilerini görmek.
+- Topic silme işlemleri yapmak.
+
+- **KAFKA_BROKERCONNECT**: Kafdrop'un bağlanacağı Kafka broker adresleri.
+- **JVM_OPTS**: Kafdrop için JVM yapılandırma ayarları.
+
 ### Parent POM'da Repository Eklenmesi
 ```xml
 <repositories>
@@ -178,3 +213,14 @@ while (true) {
   - Belirtilen topic'e abone olur. Consumer, bu topic'teki mesajları dinler.
 
 ---
+
+### Schema Registry ve Kafdrop'un Kullanımı
+
+**Schema Registry**: Kafka mesajlarının şemalarını yönetmek için kullanılır. JSON, Avro veya Protobuf gibi formatlar desteklenir. Bu, farklı uygulamalar arasında veri formatı uyumluluğunu sağlar.
+
+**Kafdrop**: Kafka cluster'ını izlemek ve yönetmek için kullanılan bir web arayüzüdür. Aşağıdaki işlemleri yapabilirsiniz:
+
+- Topic oluşturma ve silme.
+- Mesaj içeriklerini görüntüleme.
+- Partition detaylarını inceleme.
+- Tüketici gruplarını izleme.
